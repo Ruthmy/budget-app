@@ -64,7 +64,9 @@ group :development, :test do
 
   # For unit test with Rspec
   gem 'capybara'
+  gem 'database_cleaner'
   gem 'rspec-rails'
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :development do
