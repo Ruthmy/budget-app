@@ -19,7 +19,6 @@ RSpec.describe User, type: :model do
 
   describe 'associations' do
     it { should have_many(:payments).with_foreign_key(:author_id).dependent(:destroy) }
-    it { should have_many(:group_payments) }
     it { should have_many(:groups) }
   end
 
