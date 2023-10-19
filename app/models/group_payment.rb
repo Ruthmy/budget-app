@@ -14,4 +14,6 @@ class GroupPayment < ApplicationRecord
   belongs_to :payment, foreign_key: 'payment_id'
 
   validates :transaction_type, presence: true, length: { maximum: 50 }
+  validates :group_id, presence: true
+  validates :payment_id, presence: true
 end
