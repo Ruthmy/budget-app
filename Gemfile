@@ -57,6 +57,8 @@ gem 'simple_form'
 gem 'annotate'
 # Pagination
 gem 'kaminari'
+# Authentication
+gem 'devise'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
