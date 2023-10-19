@@ -9,7 +9,7 @@
 #
 class User < ApplicationRecord
   has_many :payments, foreign_key: :author_id, dependent: :destroy
-  has_many :group_payments, through: :payments
+  has_many :group_payments, through: :payments, class_name: 'GroupPayment'
   has_many :groups, through: :group_payments
 
   validates :name, presence: true, length: { maximum: 50 }
