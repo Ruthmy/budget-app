@@ -22,8 +22,13 @@ RSpec.describe Group, type: :model do
   end
 
   describe 'associations' do
-    it { should have_many(:group_payments).dependent(:destroy) }
-    it { should have_many(:payments).through(:group_payments) }
+    it 'has and belongs to many payments' do
+      expect(@group).to have_and_belong_to_many(:payments)
+    end
+
+    it 'belongs to a user' do
+      expect(@group).to belong_to(:user)
+    end
   end
 
   describe 'validations' do
