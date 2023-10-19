@@ -10,8 +10,8 @@
 #  updated_at       :datetime         not null
 #
 class GroupPayment < ApplicationRecord
-  belongs_to :group
-  belongs_to :payment
+  belongs_to :group, foreign_key: 'group_id'
+  belongs_to :payment, foreign_key: 'payment_id'
 
   validates :transaction_type, presence: true, length: { maximum: 50 }
 end
