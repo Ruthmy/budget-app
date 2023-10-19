@@ -27,17 +27,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_19_003548) do
   create_table "groups", force: :cascade do |t|
     t.string "name", limit: 50, null: false
     t.string "icon", null: false
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
   create_table "payments", force: :cascade do |t|
     t.bigint "author_id", null: false
     t.string "name", limit: 100, null: false
     t.float "amount", null: false
+    t.bigint "group_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_payments_on_author_id"
+    t.index ["group_id"], name: "index_payments_on_group_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,5 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_19_003548) do
 
   add_foreign_key "group_payments", "groups"
   add_foreign_key "group_payments", "payments"
+  add_foreign_key "groups", "users"
+  add_foreign_key "payments", "groups"
   add_foreign_key "payments", "users", column: "author_id"
 end
