@@ -18,7 +18,8 @@ RSpec.describe GroupPayment, type: :model do
 
   describe 'should have db columns' do
     it 'includes id, group_id, payment_id, transaction_type, created_at, and updated_at' do
-      expect(GroupPayment.column_names).to include('id', 'group_id', 'payment_id', 'transaction_type', 'created_at', 'updated_at')
+      expect(GroupPayment.column_names).to include('id', 'group_id', 'payment_id', 'transaction_type', 'created_at',
+                                                   'updated_at')
     end
   end
 
