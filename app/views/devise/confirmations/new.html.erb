@@ -1,20 +1,29 @@
-<h2>Resend confirmation instructions</h2>
+<div id="new-confirmation" class="full-screen">
+  <div class="header center d-flex">
+    <%= link_to splash_index_path, class: "absolute-start white-color" do %>
+      <span class="material-symbols-outlined">
+        arrow_left_alt
+      </span>
+    <% end %>
+    <h2>Resend instructions</h2>
+  </div>
+  <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+    <%= f.error_notification %>
+    <%= f.full_error :confirmation_token %>
 
-<%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-  <%= f.full_error :confirmation_token %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
+    <div class="form-inputs">
+      <%= f.input :email,
                 required: true,
                 autofocus: true,
                 value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
-                input_html: { autocomplete: "email" } %>
-  </div>
+                input_html: { autocomplete: "email", class: "input-field", placeholder: "Email" },
+                label: false %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Resend confirmation instructions" %>
-  </div>
-<% end %>
+    <div class="form-actions w-100 outline-white absolute-bottom">
+      <%= f.button :submit, "Resend instructions", class: "btn-secondary" %>
+    </div>
+  <% end %>
+</div>
 
 <%= render "devise/shared/links" %>
