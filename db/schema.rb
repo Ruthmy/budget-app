@@ -10,38 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_19_230447) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_17_222103) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "group_payments", force: :cascade do |t|
-    t.bigint "group_id", null: false
-    t.bigint "payment_id", null: false
-    t.string "transaction_type", limit: 50, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["group_id"], name: "index_group_payments_on_group_id"
-    t.index ["payment_id"], name: "index_group_payments_on_payment_id"
-  end
-
-  create_table "groups", force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
+    t.integer "author_id"
     t.string "name", limit: 50, null: false
-    t.string "icon", null: false
-    t.bigint "user_id"
+    t.string "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
-  create_table "payments", force: :cascade do |t|
-    t.bigint "author_id", null: false
-    t.bigint "group_id", null: false
-    t.string "name", limit: 100, null: false
-    t.float "amount", null: false
+  create_table "category_transactions", force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "transaction_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["author_id"], name: "index_payments_on_author_id"
-    t.index ["group_id"], name: "index_payments_on_group_id"
+    t.index ["category_id"], name: "index_category_transactions_on_category_id"
+    t.index ["transaction_id"], name: "index_category_transactions_on_transaction_id"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer "author_id"
+    t.string "name", limit: 100, null: false
+    t.decimal "amount", precision: 10, scale: 2, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,9 +57,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_19_230447) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "group_payments", "groups"
-  add_foreign_key "group_payments", "payments"
-  add_foreign_key "groups", "users"
-  add_foreign_key "payments", "groups"
-  add_foreign_key "payments", "users", column: "author_id"
+  add_foreign_key "category_transactions", "categories"
+  add_foreign_key "category_transactions", "transactions"
 end
