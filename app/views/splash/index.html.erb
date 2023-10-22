@@ -1,0 +1,16 @@
+<div id="intro-screen" class="d-flex center full-screen">
+  <%= image_tag "logo_white.png", id: "intro-screen_logo" %>
+</div>
+<div id="splash-screen" class="d-flex center full-screen p-1 fade-in">
+  <div id="splash-screen_container" class="d-flex column w-100 h-100 space-between">
+    <%= image_tag "logo_dark.png", id: "splash-screen_logo", class: "m-auto" %>
+    <div>
+      <p class="notice center italic"><%= notice %></p>
+      <p class="alert center italic"><%= alert %></p>
+    </div>
+    <div id="splash-screen_btns" class="d-flex column mt-auto">
+      <%= link_to "Login", new_user_session_path, class: "btn-primary" %>
+      <%= link_to "Sign Up", new_user_registration_path, class: "btn-grey-outline" %>
+    </div>
+  </div>
+</div>

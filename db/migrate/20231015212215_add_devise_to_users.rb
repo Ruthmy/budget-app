@@ -19,9 +19,6 @@ class AddDeviseToUsers < ActiveRecord::Migration[7.0]
       t.datetime :confirmed_at
       t.datetime :confirmation_sent_at
       t.string   :unconfirmed_email # Only if using reconfirmable
-
-      # Uncomment below if timestamps were not included in your original model.
-      # t.timestamps null: false
     end
 
     add_index :users, :email,                unique: true
