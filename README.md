@@ -91,7 +91,7 @@ The project is built using the following technologies:
 
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-<!--
+
 - 🎤 [Project presentation: video demo](https://www.loom.com/share/a57b45a0708545d9bac18071ead813e2?sid=bbd6e390-585b-487b-8157-76dc5cb071ee)
 - [Live Demo Link](https://budget-app-st58.onrender.com)
 
