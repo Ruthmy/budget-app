@@ -60,13 +60,17 @@ gem 'kaminari'
 # Authentication
 gem 'devise'
 
+# DataBase cleaner
+gem 'database_cleaner'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-
+  # Para el debug
+  gem 'pry'
+  gem 'pry-doc'
   # For unit test with Rspec
   gem 'capybara'
-  gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'shoulda-matchers', '~> 5.0'
 end
@@ -82,7 +86,9 @@ group :development do
   # gem "spring"
 
   # HTML
+  gem 'faker'
   gem 'hamlit-rails'
+  gem 'htmlbeautifier'
 end
 
 group :test do

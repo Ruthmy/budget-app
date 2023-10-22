@@ -33,13 +33,17 @@
   --black-color: #000;
   --warning-color: #ff5b5b;
   --top-right-gradient:
-    linear-gradient(to top right,
+    linear-gradient(
+      to top right,
       var(--primary-color),
-      var(--primary-darker-color));
+      var(--primary-darker-color)
+    );
   --top-bottom-gradient:
-    linear-gradient(to bottom,
+    linear-gradient(
+      to bottom,
       var(--primary-color),
-      var(--primary-dark-color));
+      var(--primary-dark-color)
+    );
 
   /* Simple Reset */
   margin: 0;

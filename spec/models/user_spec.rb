@@ -1,39 +1,31 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  before(:all) do
-    @user = User.create(name: 'User 1')
+  it 'is valid with valid attributes' do
+    user = User.new(
+      name: 'Ruth Abreu',
+      email: 'testing@example.com',
+      password: 'password123'
+    )
+    expect(user).to be_valid
   end
 
-  describe 'should have db columns' do
-    it 'includes id, name, created_at, and updated_at' do
-      expect(User.column_names).to include('id', 'name', 'created_at', 'updated_at')
-    end
+  it 'is not valid without a name' do
+    user = User.new(email: 'testing@example.com', password: 'password123')
+    expect(user).not_to be_valid
   end
 
-  describe 'attributes' do
-    it 'has name' do
-      expect(@user.name).to eq('User 1')
-    end
+  it 'is not valid without an email' do
+    user = User.new(name: 'Ruth Abreu', password: 'password123')
+    expect(user).not_to be_valid
   end
 
-  describe 'associations' do
-    it { should have_many(:payments).with_foreign_key(:author_id).dependent(:destroy) }
-    it { should have_many(:groups) }
-  end
+  it 'is not valid without a unique email' do
+    # Create a user with a specific email first
+    User.create(name: 'Ruth Abreu', email: 'testing@example.com', password: 'password123')
 
-  describe 'validations' do
-    it 'is invalid without a name' do
-      user = User.new(name: nil)
-      expect(user).to_not be_valid
-    end
-
-    it 'is invalid with a name longer than 50 characters' do
-      user = User.new(name: 'a' * 51)
-      expect(user).to_not be_valid
-    end
-
-    it { should validate_presence_of(:name) }
-    it { should validate_length_of(:name).is_at_most(50) }
+    # Try to create another user with the same email
+    user = User.new(name: 'Another User', email: 'testing@example.com', password: 'anotherpassword')
+    expect(user).not_to be_valid
   end
 end
