@@ -14,7 +14,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-    <!-- - [🚀 Live Demo](#live-demo) -->
+    - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -89,13 +89,12 @@ The project is built using the following technologies:
 
 ---
 
-<!-- 
-## 🚀 Live Demo <a name="live-demo"></a>
-<!--
-- 🎤 [Project presentation: video demo](https://drive.google.com/file/d/1-eSDabquIJCbvbQblqBPvSwbDIvaRfIb/view?usp=sharing)
-- [Live Demo Link](https://space-travelers-hub-jxxr.onrender.com)
 
--->
+## 🚀 Live Demo <a name="live-demo"></a>
+
+- 🎤 [Project presentation: video demo](https://www.loom.com/share/a57b45a0708545d9bac18071ead813e2?sid=bbd6e390-585b-487b-8157-76dc5cb071ee)
+- [Live Demo Link](https://budget-app-st58.onrender.com)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
