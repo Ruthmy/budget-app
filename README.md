@@ -1,10 +1,9 @@
 <a name="readme-top"></a>
 
 <div align="center">
-<img src="./app/assets/images/logo_white.png" width="150px">
+<img src="./app/assets/images/logo_white.png" width="170px">
   <h1><b>Personal BudgetApp  | Ruby on Rails Capstone Project</b></h1>
 </div>
-
 
 <!-- TABLE OF CONTENTS -->
 
