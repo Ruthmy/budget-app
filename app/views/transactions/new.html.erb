@@ -1,0 +1,37 @@
+<div id="new-transaction" class="full-screen bg-ligther">
+  <div class="header center d-flex">
+    <%= link_to category_transactions_path(@category), class: "absolute-start white-color" do %>
+      <span class="material-symbols-outlined">
+        arrow_back_ios
+      </span>
+    <% end %>
+    <h2>Add a new transaction</h2>
+  </div>
+  <%= form_for @transaction, url: category_transactions_path(@category) do |f| %>
+    <div class="form-inputs form-group">
+      <%= f.text_field :name, class: "input-field form-control", required: true, placeholder: "Name" %>
+      <%= f.number_field :amount, class: "input-field form-control", required: true, placeholder: "Amount" %>
+    </div>
+    <div id="categories_list" class="form-check p-1 d-flex column g-1">
+      <h2 class="category_title">Choose at least one category</h2>
+      <% if flash[:alert].present? %>
+        <small class="alert center italic warning-color"><%= flash[:alert] %></small>
+      <% end %>
+      <%= f.collection_check_boxes :related_categories,
+          Category.where(author: current_user),
+          :id,
+          :name,
+          { checked: @transaction.related_category_ids } do |b| %>
+        <div class="category_element d-flex">
+          <%= b.check_box(class: "form-check-input") %>
+          <span class="material-symbols-outlined"><%= b.object.icon %></span>
+          <%= b.label(class: "form-check-label") %>
+        </div>
+      <% end %>
+    </div>
+    <div class="form-actions w-100 outline-white absolute-bottom">
+      <%= f.submit "Save", class: "btn-secondary" %>
+    </div>
+  <% end %>
+</div>
+

@@ -1,0 +1,50 @@
+<div id="transactions" class="full-screen bg-ligther">
+  <div class="header center d-flex">
+    <%= link_to root_path, class: "absolute-start white-color" do %>
+      <span class="material-symbols-outlined">
+        arrow_back_ios
+      </span>
+    <% end %>
+    <h2 class="d-flex center g-1">
+      <span class="material-symbols-outlined" style="font-size: inherit;">
+        <%= @category.icon %>
+      </span>
+      <%= @category.name %>
+    </h2>
+  </div>
+  <div class="p-1 d-flex space-between w-100 sub-header">
+    <h2 class="category_title">Category Total</h2>
+    <p class="category_total"><%= number_to_currency(@category.total_amount, unit: "$", precision: 2) %></p>
+  </div>
+  <% if @transactions.any? %>
+    <div id="transactions_list" class="p-1">
+      <ul class="transaction-list">
+        <% @transactions.each do |transaction| %>
+          <li class="transaction-item">
+            <div class="transaction-details d-flex column">
+              <div class="d-flex space-between w-100">
+                <h2 class="category_title"><%= transaction.name %></h2>
+                <p class="category_total"><%= number_to_currency(transaction.amount, unit: "$", precision: 2) %></p>
+              </div>
+              <small class="transaction-date end-self d-flex align-center italic grey-color">
+                <span class="material-symbols-outlined">
+                  history
+                </span>
+                <%= time_ago_in_words(transaction.created_at) %>
+              </small>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% else %>
+    <div id="transactions_list" class="p-1 d-flex center">
+      <small class="no-transactions italic grey-color">No transactions in this category yet.</small>
+    </div>
+  <% end %>
+  <div class="w-100 outline-white absolute-bottom p-1 d-flex center fixed-bottom">
+    <%= link_to new_category_transaction_path(@category), class: "btn-secondary" do %>
+      Add a new transaction
+    <% end %>
+  </div>
+</div>

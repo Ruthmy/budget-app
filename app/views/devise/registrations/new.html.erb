@@ -1,0 +1,42 @@
+<div id="new-registration" class="full-screen">
+  <div class="header center d-flex">
+    <%= link_to splash_index_path, class: "absolute-start white-color" do %>
+      <span class="material-symbols-outlined">
+        arrow_left_alt
+      </span>
+    <% end %>
+    <h2>Sign up</h2>
+  </div>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs">
+      <%= f.input :name,
+        label: false,
+        placeholder: "Name",
+        required: true,
+        autofocus: true,
+        input_html: { autocomplete: "name", class: "input-field" } %>
+      <%= f.input :email,
+        label: false,
+        placeholder: "Email",
+        required: true,
+        autofocus: true,
+        input_html: { autocomplete: "email", class: "input-field" } %>
+      <%= f.input :password,
+        placeholder: "Password - #{@minimum_password_length} characters minimum",
+        label: false,
+        required: true,
+        input_html: { autocomplete: "new-password", class: "input-field" } %>
+      <%= f.input :password_confirmation,
+        label: false,
+        placeholder: "Confirm Password",
+        required: true,
+        input_html: { autocomplete: "new-password", class: "input-field" } %>
+    </div>
+    <%= render "devise/shared/links" %>
+    <p class="notice center italic warning-color"><%= notice %></p>
+    <div class="form-actions w-100 outline-white absolute-bottom">
+      <%= f.button :submit, "Sign up", class: "btn-secondary" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,27 @@
+<div id="new-session" class="full-screen">
+  <div class="header center d-flex">
+    <%= link_to splash_index_path, class: "absolute-start white-color" do %>
+      <span class="material-symbols-outlined">
+        arrow_left_alt
+      </span>
+    <% end %>
+    <h2>Forgot your password?</h2>
+  </div>
+  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :email,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "email", class: "input-field", placeholder: "Email" },
+                label: false %>
+    </div>
+
+    <div class="form-actions w-100 outline-white absolute-bottom">
+      <%= f.button :submit, "Send me reset instructions", class: "btn-secondary" %>
+    </div>
+  <% end %>
+</div>
+
+<%= render "devise/shared/links" %>

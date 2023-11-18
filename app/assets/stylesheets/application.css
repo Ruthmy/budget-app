@@ -1,0 +1,406 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+@import url('https://fonts.googleapis.com/css?family=Proxima+Nova');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
+
+* {
+  /* Color Variables */
+  --primary-color: #3778c2;
+  --primary-dark-color: #2c609b;
+  --primary-darker-color: #13325e;
+  --secondary-color: #5fb523;
+  --darker-color: #434b54;
+  --dark-color: #545c67;
+  --grey-color: #86898e;
+  --light-grey-color: #989da3;
+  --ligther-grey-color: #e8e9eb;
+  --white-color: #fff;
+  --black-color: #000;
+  --warning-color: #fd5353;
+  --top-right-gradient:
+    linear-gradient(
+      to top right,
+      var(--primary-color),
+      var(--primary-darker-color)
+    );
+  --top-bottom-gradient:
+    linear-gradient(
+      to bottom,
+      var(--primary-color),
+      var(--primary-dark-color)
+    );
+
+  /* Simple Reset */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Proxima Nova', 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.material-symbols-outlined {
+  line-height: unset !important;
+  font-size: inherit !important;
+}
+
+.form-inputs div input {
+  border-bottom: 0 !important;
+}
+
+.form-inputs {
+  border-bottom: 1px solid var(--light-grey-color);
+}
+
+.bg-ligther {
+  background-color: var(--ligther-grey-color);
+}
+
+.bg-white {
+  background-color: var(--white-color);
+}
+
+.grey-color {
+  color: var(--grey-color);
+}
+
+.warning-color {
+  color: var(--warning-color);
+}
+
+.white-color {
+  color: var(--white-color);
+}
+
+.d-flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.align-center {
+  align-content: center;
+  align-items: center;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.center-self {
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+}
+
+.end-self {
+  align-self: flex-end;
+  justify-self: flex-end;
+  text-align: right;
+}
+
+.g-1 {
+  gap: 1rem;
+}
+
+.italic {
+  font-style: italic;
+}
+
+/* stylelint-disable */
+.full-screen {
+  padding-top: 3rem;
+  height: 100dvh;
+  width: 100dvw;
+}
+
+/* stylelint-enable */
+
+.p-1 {
+  padding: 1rem;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.m-1 {
+  margin: 1rem;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.absolute-start {
+  position: absolute;
+  left: 1rem;
+}
+
+.absolute-end {
+  position: absolute;
+  right: 1rem;
+}
+
+.absolute-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.absolute-bottom {
+  position: absolute;
+  bottom: 0;
+}
+
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.header {
+  background-image: var(--top-bottom-gradient);
+  padding: 1rem;
+  color: var(--white-color);
+  text-transform: uppercase;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+.header h2 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.header .material-symbols-outlined {
+  font-size: 1rem !important;
+}
+
+.input-field {
+  width: 100%;
+  border: var(--light-grey-color) 1px solid;
+  padding: 1rem;
+  color: var(--grey-color);
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+
+.input-field:active,
+.input-field:focus {
+  outline: none;
+  border: var(--light-grey-color) 1px solid;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+  border: 1px solid var(--white-color);
+}
+
+.btn-grey-outline {
+  color: var(--grey-color);
+}
+
+.btn-grey-outline:active {
+  color: var(--ligther-grey-color);
+  background-color: var(--darker-color);
+}
+
+.outline-white {
+  padding: 1rem;
+  background-color: var(--secondary-color);
+}
+
+[class^='btn'] {
+  font-size: 1rem;
+  padding: 1rem;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.fade-in {
+  animation-name: fadeIn;
+  animation-duration: 0.25s;
+  animation-fill-mode: forwards;
+  background-color: var(--lighter-color);
+}
+
+@keyframes display-none {
+  to {
+    display: none;
+  }
+}
+
+.fade-out {
+  animation-name: fadeOut, display-none;
+  animation-delay: 5s, 1s;
+  animation-duration: 1s, 0s;
+  animation-fill-mode: forwards;
+}
+
+#intro-screen {
+  background-image: var(--top-right-gradient);
+  position: absolute;
+  z-index: 2;
+  animation-name: fadeOut, display-none;
+  animation-duration: 0.5s, 0s;
+  animation-delay: 3s, 3.5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+
+#intro-screen_logo,
+#splash-screen_logo {
+  max-width: 60vw;
+}
+
+#intro-screen_logo {
+  animation-name: bounceInLeft, bounceOutRight;
+  animation-delay: 0s, 2s;
+  animation-duration: 1s, 0.3s;
+  animation-fill-mode: forwards;
+}
+
+#splash-screen {
+  background-color: var(--ligther-grey-color);
+  position: absolute;
+}
+
+#home {
+  padding-bottom: 5rem;
+}
+
+#new-transaction-icon {
+  gap: 0.2rem;
+}
+
+.transaction-date {
+  padding-right: 0.11rem;
+}
+
+.category_item {
+  background-color: var(--white-color);
+  border-radius: 0.1rem;
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 0 0 0.11rem var(--light-grey-color);
+}
+
+.category_icon {
+  font-size: 3rem !important;
+  min-width: 4rem;
+  min-height: 4rem;
+  padding-top: 3px;
+  margin-right: 1rem;
+  color: var(--white-color);
+  background-color: var(--secondary-color);
+}
+
+.category_title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--light-grey-color);
+}
+
+.category_total {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--black-color);
+}
+
+.sub-header {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--black-color);
+  background-color: var(--white-color);
+  box-shadow: 0 0 0.13rem var(--light-grey-color);
+}
+
+#transactions_list,
+#categories_list {
+  background-color: var(--white-color);
+  box-shadow: 0 0 0.13rem var(--light-grey-color);
+  margin: 1rem;
+}
+
+.transaction-list li:not(:last-child)::after {
+  content: "";
+  display: block;
+  margin: 1rem auto;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+}
+
+.category_element {
+  gap: 0.5rem;
+  font-size: 1.1rem !important;
+  color: var(--grey-color);
+}
+
+#icon-select,
+#icon-select option {
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+  font-family: 'Material Icons Outlined', Arial, Helvetica, sans-serif;
+  font-size: 2rem !important;
+  padding: 1rem;
+  border-radius: 0.2rem;
+  border: 0;
+}

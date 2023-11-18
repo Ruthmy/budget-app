@@ -1,0 +1,25 @@
+<div id="new-category" class="full-screen bg-ligther">
+  <div class="header center d-flex">
+    <%= link_to root_path, class: "absolute-start white-color" do %>
+      <span class="material-symbols-outlined">
+        arrow_back_ios
+      </span>
+    <% end %>
+    <h2>Add a new category</h2>
+  </div>
+  <%= form_for @category, url: categories_path, html: { multipart: true } do |f| %>
+    <div class="form-inputs form-group">
+      <%= f.text_field :name, class: "input-field form-control", required: true, placeholder: "Category Name" %>
+    </div>
+    <div class="category_item d-flex column g-1">
+      <h2 class="category_title">Choose one icon</h2>
+      <div class="d-flex align-center g-1">
+        <%= f.label :icon, "Category Icon", class: "grey-color" %>
+        <%= f.select :icon, options_for_select(@icons.map { |icon| [icon, icon] }), {}, { id: "icon-select", class: "form-select form-control material-symbols-outlined", required: true } %>
+      </div>
+    </div>
+    <div class="form-actions w-100 outline-white absolute-bottom">
+      <%= f.submit "Save", class: "btn-secondary" %>
+    </div>
+  <% end %>
+</div>

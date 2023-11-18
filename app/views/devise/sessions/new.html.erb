@@ -1,0 +1,29 @@
+<div id="new-session" class="full-screen">
+  <div class="header center d-flex">
+    <%= link_to splash_index_path, class: "absolute-start white-color" do %>
+      <span class="material-symbols-outlined">
+        arrow_left_alt
+      </span>
+    <% end %>
+    <h2>Login</h2>
+  </div>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :email,
+                required: false,
+                autofocus: true,
+                input_html: { autocomplete: "email", class: "input-field", placeholder: "Email" },
+                label: false %>
+      <%= f.input :password,
+                required: false,
+                input_html: { autocomplete: "current-password", class: "input-field", placeholder: "Password"},
+                label: false %>
+    </div>
+    <%= render "devise/shared/links" %>
+    <p class="notice center italic"><%= notice %></p>
+    <p class="alert center italic warning-color"><%= alert %></p>
+    <div class="form-actions w-100 outline-white absolute-bottom">
+      <%= f.button :submit, "Log in", class: "btn-secondary" %>
+    </div>
+  <% end %>
+</div>
